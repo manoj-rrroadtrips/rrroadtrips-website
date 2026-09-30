@@ -4,8 +4,8 @@ export const site = {
   phoneDisplay: '7997209002',
   phoneHref: 'tel:7997209002',
   whatsappHref: 'https://wa.me/917997209002',
-  email: 'rrcarentals@gmail.com',
-  emailHref: 'mailto:rrcarentals@gmail.com',
+  email: 'rrroadtrips@gmail.com',
+  emailHref: 'mailto:rrroadtrips@gmail.com',
   address: 'Bachupally, Hyderabad – 500090',
   location: 'Hyderabad, Telangana',
 } as const
@@ -56,28 +56,18 @@ export const vehicles = [
     image: '/images/car-innova.png',
     alt: 'White Innova MPV available for hire',
   },
-  {
-    id: 'tempo',
-    name: 'Tempo Traveller',
-    seats: '12 + 1',
-    price: 28,
-    image: '/images/car-tempo.png',
-    alt: 'White Tempo Traveller van available for hire',
-  },
 ] as const
 
 export const routes = [
   'Hyderabad → Vijayawada',
   'Hyderabad → Srisailam',
   'Hyderabad → Tirupati',
-  'Hyderabad → Tirumala',
-  'Hyderabad → Bangalore',
   'Hyderabad → Airport',
 ] as const
 
 export const socialLinks = [
   { label: 'WhatsApp', href: site.whatsappHref },
   { label: 'Facebook', href: 'https://facebook.com/' },
-  { label: 'Instagram', href: 'https://instagram.com/' },
+  { label: 'Instagram', href: 'https://www.instagram.com/rrroadtrips' },
   { label: 'YouTube', href: 'https://youtube.com/' },
 ] as const
