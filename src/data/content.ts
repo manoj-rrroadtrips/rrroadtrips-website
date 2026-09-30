@@ -25,8 +25,8 @@ export const services = [
   { title: 'Airport Pickup & Drop', icon: 'plane' },
   { title: 'One Way Trips', icon: 'arrow' },
   { title: 'Round Trips', icon: 'round' },
-  { title: 'Corporate Travel', icon: 'briefcase' },
-  { title: 'Wedding & Event Transportation', icon: 'rings' },
+  // { title: 'Corporate Travel', icon: 'briefcase' },
+  // { title: 'Wedding & Event Transportation', icon: 'rings' },
 ] as const
 
 export type ServiceIcon = (typeof services)[number]['icon']

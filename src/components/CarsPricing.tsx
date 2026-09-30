@@ -31,7 +31,7 @@ export function CarsPricing() {
           </ul>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
           {vehicles.map((vehicle) => (
             <CarCard
               key={vehicle.id}
