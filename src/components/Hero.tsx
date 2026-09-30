@@ -5,15 +5,15 @@ import { WhatsAppIcon } from './Icons'
 
 export function Hero() {
   return (
-    <section id="home" className="relative scroll-mt-24 overflow-hidden bg-[#f8fbfc] md:bg-[#d7ebf7]">
+    <section id="home" className="relative min-h-[500px] scroll-mt-24 overflow-hidden bg-[#d7ebf7]">
       <img
         src="/images/hero_banner.jpeg"
         alt=""
-        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
+        className="absolute inset-0 h-full w-full object-cover object-[10%_center] md:object-center"
       />
-      <div className="absolute inset-0 hidden bg-gradient-to-r from-white/90 via-white/65 to-transparent md:block" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/65 to-white/10" />
 
-      <div className="relative mx-auto max-w-[1200px] px-4 pb-5 pt-10 md:grid md:min-h-[480px] md:grid-cols-2 md:items-center md:py-8">
+      <div className="relative mx-auto flex min-h-[500px] max-w-[1200px] items-start px-4 py-8 md:grid md:min-h-[480px] md:grid-cols-2 md:items-center md:py-8">
         <div className="animate-rise max-w-xl">
           <p className="text-sm font-semibold tracking-[0.2em] text-navy">WELCOME TO</p>
           <h1 className="mt-2 text-[2.4rem] font-extrabold leading-[1.05] tracking-tight text-navy sm:text-5xl lg:text-[3.35rem]">
@@ -39,7 +39,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-      <img src="/images/hero_banner.jpeg" alt="" className="block h-auto w-full md:hidden" />
     </section>
   )
 }
