@@ -5,16 +5,15 @@ import { WhatsAppIcon } from './Icons'
 
 export function Hero() {
   return (
-    <section id="home" className="relative scroll-mt-24 overflow-hidden bg-[#d7ebf7]">
+    <section id="home" className="relative scroll-mt-24 overflow-hidden bg-[#f8fbfc] md:bg-[#d7ebf7]">
       <img
-        src="/images/hero-charminar.png"
+        src="/images/hero_banner.jpeg"
         alt=""
-        className="absolute inset-0 h-full w-full object-cover object-[72%_center]"
+        className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#eef6fb] via-[#eef6fb]/88 to-[#eef6fb]/15" />
-      <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white/80 to-transparent" />
+      <div className="absolute inset-0 hidden bg-gradient-to-r from-white/90 via-white/65 to-transparent md:block" />
 
-      <div className="relative mx-auto grid min-h-[520px] max-w-[1200px] items-center gap-6 px-4 py-10 md:min-h-[480px] md:grid-cols-[1.05fr_0.95fr] md:py-8">
+      <div className="relative mx-auto max-w-[1200px] px-4 pb-5 pt-10 md:grid md:min-h-[480px] md:grid-cols-2 md:items-center md:py-8">
         <div className="animate-rise max-w-xl">
           <p className="text-sm font-semibold tracking-[0.2em] text-navy">WELCOME TO</p>
           <h1 className="mt-2 text-[2.4rem] font-extrabold leading-[1.05] tracking-tight text-navy sm:text-5xl lg:text-[3.35rem]">
@@ -39,20 +38,8 @@ export function Hero() {
             </Button>
           </div>
         </div>
-
-        <div className="animate-float relative h-48 sm:h-64 md:h-[300px] lg:h-[340px]">
-          <img
-            src="/images/car-ertiga.png"
-            alt="Silver Ertiga ready for family and outstation trips"
-            className="absolute bottom-0 right-0 w-[70%] object-contain mix-blend-multiply drop-shadow-lg"
-          />
-          <img
-            src="/images/car-dzire.png"
-            alt="White Dzire sedan ready for city travel"
-            className="absolute bottom-1 left-0 w-[64%] object-contain mix-blend-multiply drop-shadow-lg"
-          />
-        </div>
       </div>
+      <img src="/images/hero_banner.jpeg" alt="" className="block h-auto w-full md:hidden" />
     </section>
   )
 }
