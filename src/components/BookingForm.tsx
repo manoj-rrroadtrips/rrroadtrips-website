@@ -1,8 +1,8 @@
 import { Send } from 'lucide-react'
 import { useId, useState, type FormEvent } from 'react'
-import { vehicles } from '../data/content'
+import { site, vehicles } from '../data/content'
 import {
-  submitBookingRequest,
+  createWhatsAppBookingUrl,
   todayISODate,
   validateBooking,
   type BookingErrors,
@@ -33,7 +33,6 @@ export function BookingForm() {
   const formId = useId()
   const [values, setValues] = useState<BookingRequest>(emptyForm)
   const [errors, setErrors] = useState<BookingErrors>({})
-  const [submitting, setSubmitting] = useState(false)
   const [success, setSuccess] = useState(false)
   const minDate = todayISODate()
 
@@ -43,7 +42,7 @@ export function BookingForm() {
     setSuccess(false)
   }
 
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const nextErrors = validateBooking(values)
     setErrors(nextErrors)
@@ -53,14 +52,14 @@ export function BookingForm() {
       return
     }
 
-    setSubmitting(true)
-    try {
-      await submitBookingRequest(values)
-      setValues(emptyForm)
-      setSuccess(true)
-    } finally {
-      setSubmitting(false)
+    const whatsappWindow = window.open(createWhatsAppBookingUrl(values, site.whatsappHref), '_blank')
+    if (whatsappWindow) {
+      whatsappWindow.opener = null
+    } else {
+      window.location.assign(createWhatsAppBookingUrl(values, site.whatsappHref))
     }
+    setValues(emptyForm)
+    setSuccess(true)
   }
 
   return (
@@ -164,11 +163,10 @@ export function BookingForm() {
         <div className="flex justify-end">
           <button
             type="submit"
-            disabled={submitting}
             className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-navy px-8 py-2.5 text-sm font-semibold text-white transition hover:bg-navy-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
           >
             <Send className="h-4 w-4" aria-hidden="true" />
-            {submitting ? 'Sending...' : 'Submit'}
+            Submit
           </button>
         </div>
       </form>
@@ -180,7 +178,7 @@ export function BookingForm() {
         >
           <div className="flex items-start justify-between gap-3">
             <p className="text-sm leading-6">
-              Thank you! We received your booking request. Our team will contact you shortly.
+              WhatsApp opened with your booking details. Review them and tap Send to submit your request.
             </p>
             <button
               type="button"

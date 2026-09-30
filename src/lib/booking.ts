@@ -57,19 +57,18 @@ export function validateBooking(values: BookingRequest): BookingErrors {
   return errors
 }
 
-/**
- * Frontend-only submit handler. Replace the body with a POST to your booking API.
- */
-export async function submitBookingRequest(request: BookingRequest): Promise<{ ok: true }> {
-  const payload: BookingRequest = {
-    ...request,
-    name: request.name.trim(),
-    phone: request.phone.replace(/[\s-]/g, ''),
-    pickupLocation: request.pickupLocation.trim(),
-    destination: request.destination.trim(),
-  }
-
-  await new Promise((resolve) => setTimeout(resolve, 400))
-  void payload
-  return { ok: true }
+export function createWhatsAppBookingUrl(request: BookingRequest, whatsappHref: string): string {
+  const message = [
+    'New booking request',
+    `Name: ${request.name.trim()}`,
+    `Phone: ${request.phone.replace(/[\s-]/g, '')}`,
+    `Pickup: ${request.pickupLocation.trim()}`,
+    `Destination: ${request.destination.trim()}`,
+    `Travel date: ${request.travelDate}`,
+    `Vehicle: ${request.vehicle}`,
+    `Trip type: ${request.tripType === 'round-trip' ? 'Round Trip' : 'One Way'}`,
+  ].join('\n')
+  const url = new URL(whatsappHref)
+  url.searchParams.set('text', message)
+  return url.toString()
 }
