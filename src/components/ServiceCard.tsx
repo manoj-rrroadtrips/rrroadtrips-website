@@ -1,7 +1,7 @@
-import { ArrowRight, Briefcase, MapPin, Plane, RefreshCcw, Route } from 'lucide-react'
+import { ArrowRight, MapPin, Plane, RefreshCcw, Route } from 'lucide-react'
 import type { ReactNode } from 'react'
 import type { ServiceIcon } from '../data/content'
-import { RingsIcon } from './Icons'
+// import { RingsIcon } from './Icons'
 
 const icons: Record<ServiceIcon, ReactNode> = {
   pin: <MapPin className="h-6 w-6" aria-hidden="true" />,
@@ -9,8 +9,8 @@ const icons: Record<ServiceIcon, ReactNode> = {
   plane: <Plane className="h-6 w-6" aria-hidden="true" />,
   arrow: <ArrowRight className="h-6 w-6" aria-hidden="true" />,
   round: <RefreshCcw className="h-6 w-6" aria-hidden="true" />,
-  briefcase: <Briefcase className="h-6 w-6" aria-hidden="true" />,
-  rings: <RingsIcon className="h-6 w-6" />,
+  // briefcase: <Briefcase className="h-6 w-6" aria-hidden="true" />,
+  // rings: <RingsIcon className="h-6 w-6" />,
 }
 
 type ServiceCardProps = {
