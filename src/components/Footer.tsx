@@ -81,7 +81,21 @@ export function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10 py-4 text-center text-xs text-white/70">
-        © 2025 RR ROAD TRIPS. All Rights Reserved.
+        <p className="flex flex-wrap items-center justify-center gap-2">
+          <span>© 2025 RR ROAD TRIPS. All Rights Reserved.</span>
+          <span className="hidden sm:inline">|</span>
+          <span>
+            Developed and maintained by{' '}
+            <a
+              href="https://lakkydev.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gold transition hover:text-white"
+            >
+              lakkydev.in
+            </a>
+          </span>
+        </p>
       </div>
     </footer>
   )
