@@ -34,8 +34,7 @@ export const services = [
   { title: 'Airport Pickup & Drop', icon: 'plane' },
   { title: 'One Way Trips', icon: 'arrow' },
   { title: 'Round Trips', icon: 'round' },
-  // { title: 'Corporate Travel', icon: 'briefcase' },
-  // { title: 'Wedding & Event Transportation', icon: 'rings' },
+  { title: 'Wedding & Event Transportation', icon: 'rings' },
 ] as const
 
 export type ServiceIcon = (typeof services)[number]['icon']
@@ -45,7 +44,17 @@ export const vehicles = [
     id: 'dzire',
     name: 'Dzire',
     seats: '4 + 1',
-    price: 16,
+    localRentalRates: [
+      { fare: 2500, durationHours: 8, includedKm: 80, extraKmRate: 15 },
+      { fare: 4000, durationHours: 12, includedKm: 120, extraKmRate: 15 },
+    ],
+    outstationRentalRates: {
+      perKmRate: 16,
+      packageFare: 4500,
+      includedKm: 250,
+      durationHours: 24,
+      extraKmRate: 16,
+    },
     image: '/images/car-dzire.png',
     alt: 'White Dzire sedan available for hire',
   },
@@ -53,15 +62,35 @@ export const vehicles = [
     id: 'ertiga',
     name: 'Ertiga',
     seats: '6 + 1',
-    price: 18,
+    localRentalRates: [
+      { fare: 3000, durationHours: 8, includedKm: 80, extraKmRate: 18 },
+      { fare: 5000, durationHours: 12, includedKm: 120, extraKmRate: 18 },
+    ],
+    outstationRentalRates: {
+      perKmRate: 18,
+      packageFare: 5500,
+      includedKm: 250,
+      durationHours: 24,
+      extraKmRate: 18,
+    },
     image: '/images/car-ertiga.png',
     alt: 'Silver Ertiga MPV available for hire',
   },
   {
     id: 'innova',
-    name: 'Innova (New)',
+    name: 'Innova',
     seats: '7 + 1',
-    price: 22,
+    localRentalRates: [
+      { fare: 4000, durationHours: 8, includedKm: 80, extraKmRate: 22 },
+      { fare: 6000, durationHours: 12, includedKm: 120, extraKmRate: 22 },
+    ],
+    outstationRentalRates: {
+      perKmRate: 22,
+      packageFare: 6000,
+      includedKm: 250,
+      durationHours: 24,
+      extraKmRate: 22,
+    },
     image: '/images/car-innova.png',
     alt: 'White Innova MPV available for hire',
   },

@@ -37,7 +37,8 @@ export function CarsPricing() {
               key={vehicle.id}
               name={vehicle.name}
               seats={vehicle.seats}
-              price={vehicle.price}
+              localRentalRates={vehicle.localRentalRates}
+              outstationRentalRates={vehicle.outstationRentalRates}
               image={vehicle.image}
               alt={vehicle.alt}
             />
