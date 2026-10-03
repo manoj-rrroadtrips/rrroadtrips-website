@@ -28,11 +28,11 @@ export function Hero() {
             Your Journey <span className="px-1.5 text-navy/40">|</span> Our Responsibility
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
-            <Button href={site.phoneHref} className="min-h-11 px-6">
+            <Button href={site.phoneContacts.primary.phoneHref} className="min-h-11 px-6">
               <Phone className="h-4 w-4" aria-hidden="true" />
               Call Now
             </Button>
-            <Button href={site.whatsappHref} variant="whatsapp" className="min-h-11 px-6">
+            <Button href={site.phoneContacts.primary.whatsappHref} variant="whatsapp" className="min-h-11 px-6">
               <WhatsAppIcon className="h-4 w-4" />
               WhatsApp Now
             </Button>

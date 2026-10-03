@@ -52,11 +52,13 @@ export function BookingForm() {
       return
     }
 
-    const whatsappWindow = window.open(createWhatsAppBookingUrl(values, site.whatsappHref), '_blank')
+    const whatsappHref = site.phoneContacts.primary.whatsappHref
+    const whatsappUrl = createWhatsAppBookingUrl(values, whatsappHref)
+    const whatsappWindow = window.open(whatsappUrl, '_blank')
     if (whatsappWindow) {
       whatsappWindow.opener = null
     } else {
-      window.location.assign(createWhatsAppBookingUrl(values, site.whatsappHref))
+      window.location.assign(whatsappUrl)
     }
     setValues(emptyForm)
     setSuccess(true)

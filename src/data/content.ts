@@ -1,9 +1,18 @@
 export const site = {
   name: 'RR ROAD TRIPS',
   tagline: 'SAFE • COMFORTABLE • ON TIME',
-  phoneDisplay: '7997209002',
-  phoneHref: 'tel:7997209002',
-  whatsappHref: 'https://wa.me/917997209002',
+  phoneContacts: {
+    primary: {
+      phoneDisplay: '8977039002',
+      phoneHref: 'tel:8977039002',
+      whatsappHref: 'https://wa.me/918977039002',
+    },
+    alternative: {
+      phoneDisplay: '7997209002',
+      phoneHref: 'tel:7997209002',
+      whatsappHref: 'https://wa.me/917997209002',
+    },
+  },
   email: 'rrroadtrips@gmail.com',
   emailHref: 'mailto:rrroadtrips@gmail.com',
   address: 'Bachupally, Hyderabad – 500090',
@@ -36,7 +45,7 @@ export const vehicles = [
     id: 'dzire',
     name: 'Dzire',
     seats: '4 + 1',
-    price: 14,
+    price: 16,
     image: '/images/car-dzire.png',
     alt: 'White Dzire sedan available for hire',
   },
@@ -44,7 +53,7 @@ export const vehicles = [
     id: 'ertiga',
     name: 'Ertiga',
     seats: '6 + 1',
-    price: 16,
+    price: 18,
     image: '/images/car-ertiga.png',
     alt: 'Silver Ertiga MPV available for hire',
   },
@@ -66,7 +75,7 @@ export const routes = [
 ] as const
 
 export const socialLinks = [
-  { label: 'WhatsApp', href: site.whatsappHref },
+  { label: 'WhatsApp', href: site.phoneContacts.primary.whatsappHref },
   { label: 'Facebook', href: 'https://facebook.com/' },
   { label: 'Instagram', href: 'https://www.instagram.com/rrroadtrips' },
   { label: 'YouTube', href: 'https://youtube.com/' },

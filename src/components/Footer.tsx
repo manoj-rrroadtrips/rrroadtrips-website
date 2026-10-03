@@ -22,12 +22,23 @@ export function Footer() {
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-gold" aria-hidden="true" />
               <span>{site.address}</span>
             </li>
-            <li>
-              <a href={site.phoneHref} className="inline-flex items-center gap-3 hover:text-gold">
-                <Phone className="h-4 w-4 text-gold" aria-hidden="true" />
-                {site.phoneDisplay}
-              </a>
-            </li>
+            {Object.entries(site.phoneContacts).map(([kind, contact]) => (
+              <li key={contact.phoneHref} className="flex items-center gap-3">
+                <a href={contact.phoneHref} className="inline-flex items-center gap-3 hover:text-gold">
+                  <Phone className="h-4 w-4 text-gold" aria-hidden="true" />
+                  {kind === 'alternative' ? contact.phoneDisplay : contact.phoneDisplay}
+                </a>
+                <a
+                  href={contact.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`WhatsApp ${contact.phoneDisplay}`}
+                  className="text-white/90 hover:text-gold"
+                >
+                  <WhatsAppIcon className="h-4 w-4" />
+                </a>
+              </li>
+            ))}
             <li>
               <a href={site.emailHref} className="inline-flex items-center gap-3 hover:text-gold">
                 <Mail className="h-4 w-4 text-gold" aria-hidden="true" />

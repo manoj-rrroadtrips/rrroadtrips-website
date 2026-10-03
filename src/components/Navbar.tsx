@@ -70,23 +70,30 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
-            href={site.phoneHref}
-            aria-label={`Call ${site.phoneDisplay}`}
-            className="inline-flex items-center gap-2 rounded-full bg-navy px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-navy-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy min-[480px]:px-4 sm:text-sm"
-          >
-            <Phone className="h-4 w-4" aria-hidden="true" />
-            <span className="hidden min-[480px]:inline">{site.phoneDisplay}</span>
-          </a>
-          <a
-            href={site.whatsappHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Chat on WhatsApp"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-whatsapp text-white shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-          >
-            <WhatsAppIcon className="h-5 w-5" />
-          </a>
+          {[site.phoneContacts.primary].map((contact) => (
+            <a
+              key={contact.phoneHref}
+              href={contact.phoneHref}
+              aria-label={`Call ${contact.phoneDisplay}`}
+              className="inline-flex items-center gap-2 rounded-full bg-navy px-3 py-2 text-xs font-semibold text-white shadow-sm transition hover:bg-navy-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy min-[480px]:px-4 sm:text-sm"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              <span className="hidden min-[480px]:inline">{contact.phoneDisplay}</span>
+            </a>
+          ))}
+          {[site.phoneContacts.primary].map((contact) => (
+            <a
+              key={contact.whatsappHref}
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Chat with ${contact.phoneDisplay} on WhatsApp`}
+              title={`WhatsApp ${contact.phoneDisplay}`}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-whatsapp text-white shadow-sm transition hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+            </a>
+          ))}
           <button
             type="button"
             className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-navy xl:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
@@ -102,13 +109,28 @@ export function Navbar() {
 
       {open ? (
         <nav id="mobile-nav" className="border-t border-slate-100 bg-white px-4 py-3 xl:hidden" aria-label="Mobile">
-          <a
-            href={site.phoneHref}
-            className="mb-2 flex items-center gap-2 rounded-lg bg-navy px-3 py-3 text-sm font-semibold text-white"
-          >
-            <Phone className="h-4 w-4" aria-hidden="true" />
-            Call {site.phoneDisplay}
-          </a>
+          {[site.phoneContacts.primary].map((contact) => (
+            <a
+              key={contact.phoneHref}
+              href={contact.phoneHref}
+              className="mb-2 flex items-center gap-2 rounded-lg bg-navy px-3 py-3 text-sm font-semibold text-white"
+            >
+              <Phone className="h-4 w-4" aria-hidden="true" />
+              Call {contact.phoneDisplay}
+            </a>
+          ))}
+          {[site.phoneContacts.primary].map((contact) => (
+            <a
+              key={contact.whatsappHref}
+              href={contact.whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mb-2 flex items-center gap-2 rounded-lg bg-whatsapp px-3 py-3 text-sm font-semibold text-white"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              WhatsApp {contact.phoneDisplay}
+            </a>
+          ))}
           <ul className="flex flex-col">
             {navItems.map((item) => {
               const isActive = active === item.href
